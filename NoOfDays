@@ -1,0 +1,70 @@
+def daysBetweenDates(year1,month1,day1,year2,month2,day2):
+    noOfDays = 0
+    if year1 == year2:
+        if month1 == month2:
+            if day1 == day2:
+                return 0
+            while day1 < day2:
+                noOfDays += 1
+                day1 += 1
+            return noOfDays
+        else:
+            while month1 < month2:
+                while day1 <= 30:
+                    noOfDays += 1
+                    day1 += 1
+                month1 += 1
+                day1 = 1
+            if month1 == month2:
+                if day1 == day2:
+                    return noOfDays
+                while day1 < day2:
+                    noOfDays += 1
+                    day1 += 1
+                return noOfDays
+    else:
+        while year1 < year2:
+            while month1 <= 12:
+                while day1 <= 30:
+                    noOfDays += 1
+                    day1 += 1
+                month1 += 1
+                day1 = 1
+            month1 = 1
+            year1 += 1
+        if year1 == year2:
+            if month1 == month2:
+                if day1 == day2:
+                    return noOfDays
+                while day1 < day2:
+                    noOfDays += 1
+                    day1 += 1
+                return noOfDays
+            else:
+                while month1 < month2:
+                    while day1 <= 30:
+                        noOfDays += 1
+                        day1 += 1
+                    month1 += 1
+                    day1 = 1
+                if month1 == month2:
+                    if day1 == day2:
+                        return noOfDays
+                    while day1 < day2:
+                        noOfDays += 1
+                        day1 += 1
+                    return noOfDays
+
+def test():
+    test_cases = [((2012,9,30,2012,10,30),30),
+                  ((2012,1,1,2013,1,1),360),
+                  ((2012,9,1,2012,9,4),3)]
+    
+    for (args, answer) in test_cases:
+        result = daysBetweenDates(*args)
+        if result != answer:
+            print "Test with data:", args, "failed"
+        else:
+            print "Test case passed!"
+
+test()

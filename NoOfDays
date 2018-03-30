@@ -5,30 +5,11 @@ def isLeapYear(year):
         return 28
 
 def daysInMonth(month1,year1):
-    if month1 == 1:
+    if month1 == 1 or month1 == 3 or month1 == 5 or month1 == 7 or month1 == 8 or month1 == 10 or month1 == 12:
         return 31
     if month1 == 2:
         return isLeapYear(year1)
-    if month1 == 3:
-        return 31
-    if month1 == 4:
-        return 30
-    if month1 == 5:
-        return 31
-    if month1 == 6:
-        return 30
-    if month1 == 7:
-        return 31
-    if month1 == 8:
-        return 31
-    if month1 == 9:
-        return 30
-    if month1 == 10:
-        return 31
-    if month1 == 11:
-        return 30
-    if month1 == 12:
-        return 31
+    return 30
         
 def nextDay(year, month, day):
     """Simple version: assume every month has 30 days"""

@@ -1,0 +1,24 @@
+def longestString(s):
+  n, count = 0, 0
+  while n < len(s):
+    temp = 0
+    #the length of current string in the sentence
+    while n < len(s) and s[n] != ' ':
+      n += 1
+      temp += 1
+    #if current string is longer  
+    if temp > count:
+      count = temp
+      target = s[n-count:n]
+    n += 1
+  return target,count
+
+#case1
+string = "Royal Challengers Bangalore"
+a,b = longestString(string)
+print("The longest continuous string in the given sentence is '"+a+"' with "+str(b)+" letters.")
+
+#case2
+string = "Ee sala cup namde!"
+a,b = longestString(string)
+print("The longest continuous string in the given sentence is '"+a+"' with "+str(b)+" letters.")

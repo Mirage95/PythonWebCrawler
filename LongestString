@@ -22,3 +22,21 @@ print("The longest continuous string in the given sentence is '"+a+"' with "+str
 string = "Ee sala cup namde!"
 a,b = longestString(string)
 print("The longest continuous string in the given sentence is '"+a+"' with "+str(b)+" letters.")
+
+------ OR ------
+
+s = "Ee sala cup namde!"
+word = ''
+maxLen = 0
+maxWord = ''
+for c in s + ' ':
+    if c == ' ':
+        if len(word) > maxLen:
+            maxWord = word
+        word = ''
+    else:
+        word += c
+
+
+print("Longest word:", maxWord)
+print("Length:", len(maxWord))

@@ -1,0 +1,15 @@
+index = []
+
+def add_to_index(index,keyword,url):
+    for i in range(len(index)):
+        if keyword in index[i]:
+            index[i][1].append(url) #add to url part of each keyword
+            return
+    #if list empty or keyword not found
+    index.append([keyword,[url]])
+
+add_to_index(index,'udacity','http://udacity.com')
+add_to_index(index,'computing','http://acm.org')
+add_to_index(index,'udacity','http://npr.org')
+
+print index

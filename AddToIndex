@@ -1,9 +1,9 @@
 index = []
 
 def add_to_index(index,keyword,url):
-    for i in range(len(index)):
-        if keyword in index[i]:
-            index[i][1].append(url) #add to url part of each keyword
+    for i in index:
+        if i[0] == keyword:
+            i[1].append(url) #add to url part of each keyword
             return
     #if list empty or keyword not found
     index.append([keyword,[url]])

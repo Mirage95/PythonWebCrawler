@@ -1,7 +1,0 @@
-#Decimal to Whole Number
-
-x = 3.14159
-x = x + 0.5
-string=str(x)
-a=string.find('.')
-print string[:a]

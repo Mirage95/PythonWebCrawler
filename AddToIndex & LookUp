@@ -1,0 +1,31 @@
+index = []
+
+def add_to_index(index,keyword,url):
+    for i in index:
+        if i[0] == keyword:
+            i[1].append(url) #add to url part of each keyword
+            return
+    #if list empty or keyword not found
+    index.append([keyword,[url]])
+
+add_to_index(index,'udacity','http://udacity.com')
+add_to_index(index,'computing','http://acm.org')
+add_to_index(index,'udacity','http://npr.org')
+
+#search index = [['udacity', ['http://udacity.com', 'http://npr.org']], ['computing', ['http://acm.org']]]
+
+def lookup(index,keyword):
+    for i in index:
+        if i[0] == keyword:
+            return i[1]
+    return []
+
+print lookup(index,'udacity')
+
+def add_page_to_index(index,url,content):
+    c = content.split()
+    for i in c:
+        add_to_index(index,i,url)
+        
+add_page_to_index(index,'fake.text',"This is a test")
+print index
